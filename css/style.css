@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+:root {
+    --sans-font: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
+    sans-serif;
+}
+
+body {
+  font-size: 1.1em;
+  line-height: 135%;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: #fff;
+  font-family:var(--sans-font);
+  margin: 0;
+  padding: 0;
+  background: #4C4AE7;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(10px);
+  pointer-events: none;
+  user-select: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Drop {
+  transition: all 250ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Drop.is-dragover canvas {
+  transform: scale(0.95);
+}
+
+.Drop.is-dragover .Drop__info {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+}
+
+.Drop.is-dragover {
+  background: #3735a5;
+}
+
+.Drop__info {
+  text-align: center;
+  transition: all 250ms ease-in-out;
+  user-select: none;
+}
+
+.Drop__download {
+  background: #fff;
+  color: #000;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 2px 2px 16px rgb(0 0 0 / 50%);
+  user-select: none;
+  transition: all 250ms ease-in-out;
+}
+
+canvas {
+  position: absolute;
+  max-height: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 1px 1px 16px rgb(0 0 0 / 50%);
+  transition: all 250ms ease-in-out;
+}
+
+canvas:hover {
+  box-shadow: 1px 1px 32px rgb(0 0 0 / 50%);
+}
+
+.Hello {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  font-size: 0.8em;
+}
+
+.Hello a {
+  text-decoration: underline;
+}
+
