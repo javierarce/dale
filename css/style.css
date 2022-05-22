@@ -56,6 +56,10 @@ a {
   transform: scale(0.95);
 }
 
+.Drop.is-error {
+  background: #d94343;
+}
+
 .Drop.is-dragover {
   background: #3735a5;
 }
@@ -64,6 +68,7 @@ a {
   text-align: center;
   transition: all 250ms ease-in-out;
   user-select: none;
+  pointer-events: none;
 }
 
 .Drop__download {

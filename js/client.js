@@ -1,10 +1,23 @@
+const DEFAULT_MESSAGE = 'Drag & drop an image here'
+
 let $canvas = undefined
 let MAX_HEIGHT = 1080
 let currentTransformation = 0
+let $message = undefined
 
 const loadImage = ($target, src) => {
-  if (!src.type.match(/image.*/)){
-    console.log("The dropped file is not an image: ", src.type)
+  if (!src.type.match(/image.*/)) {
+    $message.innerHTML= 'The dropped file is not an image.'
+    $target.classList.remove('is-drop')
+    $target.classList.remove('is-dragover')
+    $target.classList.add('is-error')
+
+    setTimeout(() => {
+    $target.classList.remove('is-error')
+      $message.innerHTML= DEFAULT_MESSAGE
+    }, 2000)
+
+    console.error("The dropped file is not an image: ", src.type)
     return
   }
 
@@ -78,6 +91,8 @@ const transformImage = (image) => {
 }
 
 const onLoad = () => {
+  $message = getElement('.js-info')
+
   let $target = getElement('.js-drop')
 
   $target.addEventListener('dragleave', (e) => {
